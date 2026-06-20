@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#1e40af">
+    <meta name="theme-color" content="#C62828">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="EquipCheck">
@@ -18,7 +18,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
         
         :root {
-            --primary: #1e40af;
+            --primary: #8B0000;        /* Darker red for Peddler's Son branding */
+            --primary-dark: #6B0000;
+            --green: #15803d;          /* More prominent, fresh green */
+            --green-dark: #166534;
         }
         
         body {
@@ -54,7 +57,7 @@
         }
         
         .nav-tab.active {
-            background-color: #1e40af;
+            background-color: #8B0000;
             color: white;
             border-radius: 8px;
         }
@@ -103,7 +106,7 @@
         }
 
         .warehouse-header {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #C62828 0%, #B71C1C 100%);
         }
 
         .metric {
@@ -139,7 +142,7 @@
         }
         
         .category-btn.active {
-            background-color: #1e40af;
+            background-color: #C62828;
             color: white;
             box-shadow: 0 4px 6px -1px rgb(30 64 175 / 0.2);
         }
@@ -228,7 +231,7 @@
         .text-slate-700 { color: #334155; }
         .text-blue-100 { color: #dbeafe; }
         .text-blue-200 { color: #bfdbfe; }
-        .text-blue-700 { color: #1d4ed8; }
+        .text-blue-700 { color: #B71C1C; }
         .text-emerald-200 { color: #a7f3d0; }
         .text-emerald-700 { color: #047857; }
         .text-rose-200 { color: #fecaca; }
@@ -236,7 +239,7 @@
         .bg-white { background-color: white; }
         .bg-slate-100 { background-color: #f1f5f9; }
         .bg-slate-200 { background-color: #e2e8f0; }
-        .bg-blue-50 { background-color: #eff6ff; }
+        .bg-red-50 { background-color: #eff6ff; }
         .bg-emerald-100 { background-color: #d1fae5; }
         .bg-emerald-600 { background-color: #059669; }
         .bg-emerald-700 { background-color: #047857; }
@@ -245,13 +248,13 @@
         .bg-rose-700 { background-color: #be123c; }
         .bg-rose-800 { background-color: #9f1239; }
         .bg-blue-600 { background-color: #2563eb; }
-        .bg-blue-700 { background-color: #1d4ed8; }
-        .bg-blue-800 { background-color: #1e40af; }
+        .bg-blue-700 { background-color: #B71C1C; }
+        .bg-blue-800 { background-color: #C62828; }
 
         .border { border-width: 1px; }
         .border-2 { border-width: 2px; }
         .border-slate-200 { border-color: #e2e8f0; }
-        .border-blue-200 { border-color: #bfdbfe; }
+        .border-red-200 { border-color: #bfdbfe; }
 
         .rounded-xl { border-radius: 0.75rem; }
         .rounded-2xl { border-radius: 1rem; }
@@ -268,11 +271,11 @@
         .active\:scale-\[0\.985\]:active { transform: scale(0.985); }
         .hover\:bg-slate-100:hover { background-color: #f1f5f9; }
         .hover\:bg-slate-200:hover { background-color: #e2e8f0; }
-        .hover\:from-blue-700:hover { --tw-gradient-from: #1d4ed8; }
+        .hover\:from-blue-700:hover { --tw-gradient-from: #B71C1C; }
         .hover\:to-blue-800:hover { --tw-gradient-to: #1e40af; }
         .active\:from-blue-800:active { --tw-gradient-from: #1e40af; }
 
-        .focus\:border-blue-600:focus { border-color: #2563eb; }
+        .focus\:border-red-600:focus { border-color: #C62828; }
         .placeholder\:text-slate-300::placeholder { color: #cbd5e1; }
         .placeholder\:text-slate-400::placeholder { color: #94a3b8; }
 
@@ -311,22 +314,22 @@
             --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(37 99 235 / 0));
         }
         .to-blue-700 {
-            --tw-gradient-to: #1d4ed8;
+            --tw-gradient-to: #B71C1C;
         }
 
         /* Additional hover states used in the app */
-        .hover\:from-blue-700:hover { --tw-gradient-from: #1d4ed8; }
+        .hover\:from-blue-700:hover { --tw-gradient-from: #B71C1C; }
         .hover\:to-blue-800:hover { --tw-gradient-to: #1e40af; }
         .active\:from-blue-800:active { --tw-gradient-from: #1e40af; }
         .hover\:bg-emerald-700:hover { background-color: #047857; }
         .hover\:bg-emerald-800:hover { background-color: #065f46; }
         .hover\:bg-rose-700:hover { background-color: #be123c; }
         .hover\:bg-rose-800:hover { background-color: #9f1239; }
-        .hover\:bg-blue-700:hover { background-color: #1d4ed8; }
-        .hover\:bg-blue-800:hover { background-color: #1e40af; }
+        .hover\:bg-blue-700:hover { background-color: #B71C1C; }
+        .hover\:bg-blue-800:hover { background-color: #C62828; }
 
         .category-btn.active {
-            background-color: #1e40af;
+            background-color: #C62828;
             color: white;
             border-color: #1e40af;
         }
@@ -397,7 +400,7 @@
             <!-- QR SCAN BUTTON (NEW) -->
             <div class="mb-4">
                 <button onclick="openQRScanner()" 
-                        class="w-full flex items-center justify-center gap-x-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 active:from-blue-800 text-white font-extrabold py-4 rounded-3xl shadow-lg transition-all text-base">
+                        class="w-full flex items-center justify-center gap-x-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 active:from-red-800 text-white font-extrabold py-4 rounded-3xl shadow-lg transition-all text-base">
                     <i class="fa-solid fa-qrcode text-2xl"></i>
                     <span>SCAN QR CODE ON EQUIPMENT</span>
                 </button>
@@ -409,7 +412,7 @@
                 <label class="block text-xs font-bold text-slate-500 tracking-wider mb-2 px-1">EQUIPMENT CATEGORY</label>
                 <div class="grid grid-cols-3 gap-2">
                     <button onclick="selectCategory('forklift')" id="cat-forklift"
-                            class="category-btn flex flex-col items-center justify-center gap-y-1.5 px-3 py-3.5 rounded-3xl border-2 border-blue-200 bg-blue-50 text-blue-700 active:scale-[0.985]">
+                            class="category-btn flex flex-col items-center justify-center gap-y-1.5 px-3 py-3.5 rounded-3xl border-2 border-red-200 bg-red-50 text-blue-700 active:scale-[0.985]">
                         <i class="fa-solid fa-truck text-2xl"></i>
                         <span class="font-bold text-sm">Forklift</span>
                     </button>
@@ -546,7 +549,7 @@
 
             <!-- Submit Button -->
             <button onclick="submitLog()" 
-                    class="big-button w-full bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-extrabold tracking-tighter text-xl py-5 rounded-3xl flex items-center justify-center gap-x-3 shadow-xl transition-all">
+                    class="big-button w-full bg-red-700 hover:bg-red-800 active:bg-red-900 text-white font-extrabold tracking-tighter text-xl py-5 rounded-3xl flex items-center justify-center gap-x-3 shadow-xl transition-all">
                 <i class="fa-solid fa-save"></i>
                 <span>SAVE DAILY LOG</span>
             </button>
@@ -585,7 +588,7 @@
                     </button>
                 </div>
                 <p class="text-[10px] text-slate-400 mt-2 px-1">Equipment will be available for quick selection in New Log</p>
-                <div class="mt-3 p-3 bg-blue-50 border border-blue-100 rounded-2xl text-[10px] text-blue-700">
+                <div class="mt-3 p-3 bg-red-50 border border-blue-100 rounded-2xl text-[10px] text-blue-700">
                     <i class="fa-solid fa-qrcode mr-1"></i> <strong>QR Code Tip:</strong> Create QR codes containing just the equipment number (e.g. <span class="font-mono">FORK-042</span>) and stick them on each unit for instant scanning from the New Log screen.
                 </div>
             </div>
@@ -739,7 +742,7 @@
             <div class="flex items-center justify-center gap-x-2 text-[10px] text-slate-400">
                 <span>Peddler's Son Produce • Warehouse Ops</span>
                 <span class="text-slate-300">•</span>
-                <span id="app-version">v2.6 • Peddler’s Son Icon</span>
+                <span id="app-version">v2.8 • Peddler's Son Red Theme</span>
             </div>
             <div class="text-[9px] text-slate-400 mt-0.5">Daily pre-use inspections • For internal compliance &amp; audit records</div>
         </div>
@@ -809,7 +812,7 @@
     <!-- QR Scanner Modal (NEW) -->
     <div id="qr-scanner-modal" onclick="if (event.target.id === 'qr-scanner-modal') closeQRScanner()" 
          class="hidden fixed inset-0 bg-black/90 z-[300] flex flex-col">
-        <div class="flex-1 flex flex-col p-4 pt-8">
+        <div class="flex-1 flex flex-col p-4 pt-2">
             <!-- Header -->
             <div class="flex items-center justify-between mb-4 px-2">
                 <div>
@@ -821,7 +824,7 @@
             </div>
 
             <!-- Camera Preview -->
-            <div class="flex-1 relative bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10" style="min-height: 320px;">
+            <div class="flex-1 relative bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10" style="min-height: 55vh; max-height: 70vh;">
                 <video id="qr-video" autoplay playsinline class="w-full h-full object-cover"></video>
                 
                 <!-- Scanning overlay -->
@@ -1016,7 +1019,7 @@
             
             list.slice(0, 8).forEach(num => {
                 const chip = document.createElement('button');
-                chip.className = 'equip-chip text-xs px-3.5 py-1.5 bg-white border border-slate-200 hover:border-blue-400 hover:bg-blue-50 text-slate-700 hover:text-blue-700 rounded-2xl font-mono transition-all active:scale-[0.96]';
+                chip.className = 'equip-chip text-xs px-3.5 py-1.5 bg-white border border-slate-200 hover:border-blue-400 hover:bg-red-50 text-slate-700 hover:text-blue-700 rounded-2xl font-mono transition-all active:scale-[0.96]';
                 chip.textContent = num;
                 chip.onclick = () => {
                     document.getElementById('equipment-number').value = num;
@@ -1104,12 +1107,12 @@
             }
         }
 
-        // Take photo (saves to gallery)
+        // Take photo - Opens camera directly (improved for Android Chrome)
         function takePhoto() {
             const input = document.createElement('input');
             input.type = 'file';
             input.accept = 'image/*';
-            input.capture = 'environment';
+            input.setAttribute('capture', 'environment');   // Force rear camera
             
             input.onchange = function(e) {
                 if (e.target.files && e.target.files[0]) {
