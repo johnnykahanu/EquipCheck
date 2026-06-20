@@ -742,7 +742,7 @@
             <div class="flex items-center justify-center gap-x-2 text-[10px] text-slate-400">
                 <span>Peddler's Son Produce • Warehouse Ops</span>
                 <span class="text-slate-300">•</span>
-                <span id="app-version">v2.9 • Better Downloads (Share Sheet)</span>
+                <span id="app-version">v2.8 • Peddler's Son Red Theme</span>
             </div>
             <div class="text-[9px] text-slate-400 mt-0.5">Daily pre-use inspections • For internal compliance &amp; audit records</div>
         </div>
@@ -1655,37 +1655,13 @@
         }
 
         // Helper function for reliable downloads in installed PWAs / standalone mode
-        // Improved download function that works better in installed PWAs/APKs
-        async function downloadExcelFile(wb, filename) {
+        function downloadExcelFile(wb, filename) {
             try {
                 const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
                 const blob = new Blob([wbout], { 
                     type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
                 });
-
-                // Try native Share Sheet first (best for installed apps on Android)
-                if (navigator.share && navigator.canShare) {
-                    const file = new File([blob], filename, { 
-                        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" 
-                    });
-                    
-                    if (navigator.canShare({ files: [file] })) {
-                        try {
-                            await navigator.share({ 
-                                files: [file],
-                                title: filename,
-                                text: 'Equipment Inspection Export'
-                            });
-                            showToast('File ready to save or share', 'success');
-                            return;
-                        } catch (shareErr) {
-                            // User cancelled share sheet or it failed - fall through to download
-                            console.log('Share cancelled or failed, trying fallback download');
-                        }
-                    }
-                }
-
-                // Fallback: Traditional download (works in normal browser)
+                
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
@@ -1694,6 +1670,7 @@
                 document.body.appendChild(a);
                 a.click();
                 
+                // Cleanup
                 setTimeout(() => {
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
@@ -1701,7 +1678,7 @@
                 
             } catch (err) {
                 console.error('Download failed:', err);
-                showToast('Download failed. Try long-pressing the export button.', 'error');
+                showToast('Download failed. Try long-pressing the export button instead.', 'error');
             }
         }
 
@@ -1814,7 +1791,7 @@
             showToast(`Exported ${logs.length} logs to Excel`, 'success');
         }
 
-        async function exportBackup() {
+        function exportBackup() {
             const backupData = {
                 logs: logs,
                 equipmentRegistry: equipmentRegistry,
@@ -1822,31 +1799,11 @@
             };
             const dataStr = JSON.stringify(backupData, null, 2);
             const blob = new Blob([dataStr], { type: 'application/json' });
-            const filename = `Equipment_Logs_Backup_${new Date().toISOString().split('T')[0]}.json`;
-
-            // Try native Share Sheet first (best for installed apps)
-            if (navigator.share && navigator.canShare) {
-                const file = new File([blob], filename, { type: 'application/json' });
-                
-                if (navigator.canShare({ files: [file] })) {
-                    try {
-                        await navigator.share({ 
-                            files: [file],
-                            title: filename 
-                        });
-                        showToast('Backup ready to save or share', 'success');
-                        return;
-                    } catch (shareErr) {
-                        console.log('Share cancelled, trying fallback');
-                    }
-                }
-            }
-
-            // Fallback traditional download
             const url = URL.createObjectURL(blob);
+            
             const link = document.createElement('a');
             link.href = url;
-            link.download = filename;
+            link.download = `Equipment_Logs_Backup_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(link);
             link.click();
             
